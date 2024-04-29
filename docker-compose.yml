@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  
+  # BACKEND SERVICE
+  backend:
+    build: ./backend
+    ports:
+      - "4000:4000"
+    restart: always
+    environment:
+      - FRONTEND_URL=http://frontend:5000
+  
+  # FRONTEND SERVICE
+  frontend:
+    build: ./frontend
+    ports:
+      - "5000:5000"
+    restart: always
